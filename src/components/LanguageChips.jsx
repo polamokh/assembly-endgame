@@ -1,10 +1,13 @@
-import { languages } from "../languages.js";
+import clsx from "clsx";
 
-export default function LanguageChips() {
-  const languageChips = languages.map((lang) => {
+export default function LanguageChips(props) {
+  const languageChips = props.languages.map((lang, index) => {
     return (
       <span
         key={lang.name}
+        className={clsx({
+          lost: index < props.wrongGuessCount,
+        })}
         style={{
           color: lang.color,
           backgroundColor: lang.backgroundColor,
