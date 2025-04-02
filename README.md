@@ -1,12 +1,12 @@
-# React + Vite
+# Assembly: Endgame
+Guess the word in under 8 attempts to keep the programming world safe from Assembly!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This game is developed through [Scrimba React Cource](https://scrimba.com/learn-react-c0e).
 
-Currently, two official plugins are available:
+## Play Assembly: Endgame
+1. Clone repo.
+2. Install NPM packages using `npm install`.
+3. Run `npm run dev` command.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Screenshot
+![Game screenshot](./public/chrome_dpScERvo3E.png)
