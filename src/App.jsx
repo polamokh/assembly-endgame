@@ -5,9 +5,11 @@ import Header from "./components/Header";
 import StatusBar from "./components/StatusBar";
 import Word from "./components/Word";
 import Keyboard from "./components/Keyboard";
+import { getRandomWord } from "./utils.js";
+import Conffeti from "react-confetti";
 
 function App() {
-  const [currentWord, setCurrentWord] = useState("react");
+  const [currentWord, setCurrentWord] = useState(() => getRandomWord());
   const [guessedLetters, setGuessedLetters] = useState([]);
 
   const wrongGuessCount = guessedLetters.filter(
@@ -26,23 +28,47 @@ function App() {
     );
   }
 
+  function startNewGame() {
+    setGuessedLetters(() => []);
+    setCurrentWord(() => getRandomWord());
+  }
+
   return (
     <main>
+      {isGameWon && <Conffeti />}
+      
       <Header />
 
-      <StatusBar />
+      <StatusBar
+        isGameWon={isGameWon}
+        isGameLost={isGameLost}
+        isGameOver={isGameOver}
+        languages={languages}
+        currentWord={currentWord}
+        guessedLetters={guessedLetters}
+        wrongGuessCount={wrongGuessCount}
+      />
 
       <LanguageChips languages={languages} wrongGuessCount={wrongGuessCount} />
 
-      <Word value={currentWord} guessedLetters={guessedLetters} />
+      <Word
+        value={currentWord}
+        guessedLetters={guessedLetters}
+        isGameLost={isGameLost}
+      />
 
       <Keyboard
         word={currentWord}
         guessedLetters={guessedLetters}
+        isGameOver={isGameOver}
         onClick={addGuessLetter}
       />
 
-      {isGameOver && <button className="start-game">New Game</button>}
+      {isGameOver && (
+        <button className="start-game" onClick={startNewGame}>
+          New Game
+        </button>
+      )}
     </main>
   );
 }

@@ -41,20 +41,40 @@ header > p {
 section.status-bar {
   width: 350px;
   border-radius: 4px;
+  height: 60px;
   margin: 6px 0 40px;
   padding: 6px;
-  background-color: #10a95b;
   display: flex;
   align-items: center;
   flex-direction: column;
   color: #f9f4da;
-  text-align: center;
+  justify-content: center;
+}
+
+section.status-bar.won {
+  background-color: #10a95b;
+}
+
+section.status-bar.lost {
+  background-color: #ba2a2a;
+}
+
+section.status-bar.farewell {
+  background-color: #7a5ea7;
+  border: 1px dashed #323232;
 }
 
 section.status-bar > h2 {
   margin: 0;
   font-size: 1.25rem;
   font-weight: 500;
+}
+
+section.status-bar.farewell > p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  font-style: italic;
 }
 
 section.status-bar > p {
@@ -117,6 +137,10 @@ section.word > span {
   justify-content: center;
 }
 
+section.word > span.missed-letter {
+  color: #ec5d49;
+}
+
 section.keyboard {
   display: flex;
   flex-wrap: wrap;
@@ -140,6 +164,11 @@ section.keyboard > button {
   font-weight: 700;
   color: #1e1e1e;
   cursor: pointer;
+}
+
+section.keyboard > button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 button.normal {

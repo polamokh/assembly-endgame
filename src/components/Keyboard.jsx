@@ -20,6 +20,7 @@ export default function Keyboard(props) {
         key={letter}
         className={color}
         onClick={() => props.onClick(letter)}
+        disabled={props.isGameOver}
       >
         {letter.toUpperCase()}
       </button>
